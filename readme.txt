@@ -1,0 +1,27 @@
+  查找了很多资料没有用vlc读取实时摄像头数据用pyqt来显示的例子，为此，参考了一些资料对vlc做了一个二次封装，封装后保留了opencv基本上的一些功能，可以替换原pyqt的工程中opencv的接口直接使用。
+说明如下：简单的播放可以参考example.py
+类Player
+1、Player.play(url,choose)
+加载播放路径（url）和选择播放通道（choose，1~20，实验可以同时打开8个，不能用同一个完成并行播放，数据会混乱分不开）。
+2、Player.image_get(choose)
+加载当前帧的图像数据（choose，选择加载的通道，必须在加载路径后使用，不然返回1）
+3、Player.pause()
+暂停播放
+4、Player.resume()
+恢复播放
+5、Player.stop()
+停止播放
+6、Player.release()
+释放资源
+7、Player.is_playing()
+判断是否还在播放
+8、Player.get_time()
+已播放时间，返回毫秒值
+9、Player.set_time()
+设定播放处（必须当前的多媒体格式或者流媒体协议支持）
+10、Player.get_length()
+返回音频总长度
+11、Player.get_volume()
+获取当前音量
+12、Player.set_volume(volume)
+设置音量（0~100）
